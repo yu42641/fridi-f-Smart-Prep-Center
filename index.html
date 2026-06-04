@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<HTML 長篇=「呃-呃」>
-<頭>
+<html lang="zh-TW">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>智慧備料 - 專業智能版</title>
@@ -343,13 +343,13 @@
         const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
         const dow = tomorrow.getDay();
         const dowVals = stats.dowStats[dow] || stats.history;
-        const avg = dowVals.reduce((a,b)=>a+b,0) / dowVals.length;
-        const histAvg = stats.history.reduce((a,b)=>a+b,0) / stats.history.length;
-        const suggest = Math.ceil(((avg*0.7) + (histAvg*0.3)) * 1.15);
+const avg = dowVals.reduce（（a，b）=>a+b，0） / dowVals。長度;
+const histAvg = 統計。歷史。reduce（（a，b）=>a+b，0） / 統計。歷史。長度;
+帳號suggestion = 數學。 ceil（（平均值*0.7） + （histAvg*0.3）） * 1.15）;
 
-        document.getElementById('mainSuggest').innerText = suggest;
-        document.getElementById('suggestRange').innerText = `${Math.ceil(suggest*0.9)} ~ ${Math.ceil(suggest*1.2)}`;
-        document.getElementById('dayAvg').innerText = avg.toFixed(1);
+記錄。getElementById（「主建議」）。 內文 = 建議;
+記錄。getElementById（「建議範圍」）。innerText = '${數學。 ceil（建議*0.9）} ~ ${數學。 ceil（建議*1.2）}';
+記錄。getElementById（'dayAvg'）.innerText = 平均值。toFixed（1）;
         document.getElementById('histMax').innerText = Math.max(...stats.history);
         document.getElementById('histMin').innerText = Math.min(...stats.history);
         document.getElementById('volatility').innerText = Math.round(((Math.max(...dowVals)-Math.min(...dowVals))/(avg||1))*100) + "%";
